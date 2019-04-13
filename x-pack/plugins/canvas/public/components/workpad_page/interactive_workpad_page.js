@@ -125,6 +125,16 @@ export class InteractiveWorkpadPage extends PureComponent {
             }
           })
           .filter(element => !!element)}
+        <div
+          style={{
+            width: 2000,
+            height: 2000,
+            left: -500,
+            top: -500,
+            position: 'absolute',
+            backgroundColor: 'rgba(255, 255, 255, 0.01)',
+          }}
+        />
       </div>
     );
   }
