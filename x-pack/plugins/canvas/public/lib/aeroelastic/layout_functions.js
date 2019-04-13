@@ -4,7 +4,7 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-import { landmarkPoint, shapesAt } from './geometry';
+import { landmarkPoint, shapesAt, insideAABB } from './geometry';
 
 import {
   compositeComponent,
@@ -1193,14 +1193,16 @@ export const getSelectionStateFull = (
   hoveredShapes,
   { down, uid },
   metaHeld,
-  multiselect
+  multiselect,
+  boxSelected,
+  allShapes
 ) => {
   const uidUnchanged = uid === prev.uid;
   const mouseButtonUp = !down;
   if (selectedShapeObjects) {
     prev.shapes = selectedShapeObjects.slice();
   }
-  // take action on mouse down only, and if the uid changed (except with directSelect), ie. bail otherwise
+  // take action on mouse down only, and if the uid changed, ie. bail otherwise
   if (mouseButtonUp || uidUnchanged) {
     return { ...prev, down, uid, metaHeld };
   }
@@ -1350,6 +1352,39 @@ export const getRotationAnnotations = (config, { shapes, selectedShapes }) => {
     .filter(identity);
 };
 
+export const getDragBox = (dragging, draggedShape, { x0, y0, x1, y1 }) =>
+  dragging &&
+  !draggedShape && {
+    x: (x0 + x1) / 2,
+    y: (y0 + y1) / 2,
+    a: Math.abs(x1 - x0) / 2,
+    b: Math.abs(y1 - y0) / 2,
+  };
+
+export const getDragBoxSelected = (box, shapes) => {
+  if (!box) {
+    return [];
+  }
+  const filter = insideAABB(box);
+  return shapes.filter(s => s.type !== 'annotation' && filter(s.transformMatrix, s.a, s.b));
+};
+
+export const getDragBoxAnnotation = (config, box) =>
+  box
+    ? [
+        {
+          id: config.dragBoxAnnotationName,
+          type: 'annotation',
+          subtype: config.dragBoxAnnotationName,
+          interactive: false,
+          parent: null,
+          localTransformMatrix: translate(box.x, box.y, config.dragBoxZ),
+          a: box.a,
+          b: box.b,
+        },
+      ]
+    : [];
+
 export const getAnnotatedShapes = (
   { shapes },
   alignmentGuideAnnotations,
@@ -1357,7 +1392,8 @@ export const getAnnotatedShapes = (
   rotationAnnotations,
   resizeAnnotations,
   rotationTooltipAnnotation,
-  adHocChildrenAnnotations
+  adHocChildrenAnnotations,
+  dragBoxAnnotation
 ) => {
   // fixme update it to a simple concatenator, no need for enlisting the now pretty long subtype list
   const annotations = [].concat(
@@ -1366,7 +1402,8 @@ export const getAnnotatedShapes = (
     rotationAnnotations,
     resizeAnnotations,
     rotationTooltipAnnotation,
-    adHocChildrenAnnotations
+    adHocChildrenAnnotations,
+    dragBoxAnnotation
   );
   // remove preexisting annotations
   const contentShapes = shapes.filter(shape => shape.type !== 'annotation');
