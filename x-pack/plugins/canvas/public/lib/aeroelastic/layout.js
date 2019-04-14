@@ -60,6 +60,7 @@ import {
   getSelectionState,
   getSelectionStateFull,
   getShapes,
+  getShapesToHover,
   getSnappedShapes,
   getTransformIntents,
   resizeAnnotationsFunction,
@@ -146,9 +147,11 @@ const alignmentGuideAnnotations = select(getAlignmentGuideAnnotations)(
   draggedShape
 );
 
+const shapesToHover = select(getShapesToHover)(dragBox, hoveredShapes, boxHighlightedShapes);
+
 const hoverAnnotations = select(getHoverAnnotations)(
   configuration,
-  select((d, h, b) => (d ? b : h.slice(0, 1)))(dragBox, hoveredShapes, boxHighlightedShapes),
+  shapesToHover,
   selectedPrimaryShapeIds,
   draggedShape
 );

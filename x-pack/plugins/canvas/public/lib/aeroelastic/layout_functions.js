@@ -4,7 +4,7 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-import { landmarkPoint, shapesAt, insideAABB } from './geometry';
+import { insideAABB, landmarkPoint, shapesAt } from './geometry';
 
 import {
   compositeComponent,
@@ -1324,6 +1324,9 @@ export const getHoverAnnotations = (config, shapes, selectedPrimaryShapeIds, dra
         !draggedShape
     )
     .map(borderAnnotation(config.hoverAnnotationName, config.hoverLift));
+
+export const getShapesToHover = (dragBox, hoveredShapes, boxHighlightedShapes) =>
+  dragBox ? boxHighlightedShapes : hoveredShapes.slice(0, 1);
 
 export const getSnappedShapes = (
   config,
