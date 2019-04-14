@@ -34,7 +34,7 @@ import {
   getCursor,
   getDragBox,
   getDragBoxAnnotation,
-  getDragBoxSelected,
+  getDragboxHighlighted,
   getDraggedPrimaryShape,
   getFocusedShape,
   getGroupAction,
@@ -102,7 +102,7 @@ const selectedShapeObjects = select(getSelectedShapeObjects)(scene, shapes);
 
 const selectedShapesPrev = select(getSelectedShapesPrev)(scene);
 
-const boxSelected = select(getDragBoxSelected)(dragBox, shapes);
+const boxHighlightedShapes = select(getDragboxHighlighted)(dragBox, shapes);
 
 const selectionStateFull = select(getSelectionStateFull)(
   selectedShapesPrev,
@@ -112,8 +112,7 @@ const selectionStateFull = select(getSelectionStateFull)(
   mouseButton,
   metaHeld,
   multiselectModifier,
-  boxSelected,
-  shapes
+  boxHighlightedShapes
 );
 
 const selectionState = select(getSelectionState)(selectionStateFull);
@@ -154,7 +153,7 @@ const hoverAnnotations = select(getHoverAnnotations)(
       .slice(0, 1)
       .concat(b)
       .filter((d, i, a) => a.indexOf(d) === i)
-  )(hoveredShapes, boxSelected),
+  )(hoveredShapes, boxHighlightedShapes),
   selectedPrimaryShapeIds,
   draggedShape
 );

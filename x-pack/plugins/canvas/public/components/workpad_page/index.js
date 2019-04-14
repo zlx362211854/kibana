@@ -170,7 +170,7 @@ const componentLayoutState = ({ aeroStore, setAeroStore, elements, selectedTople
       selectedShapes,
       selectionState: aeroStore
         ? aeroStore.getCurrentState().currentScene.selectionState
-        : { uid: 0, depthIndex: 0, down: false },
+        : { uid: 0, depthIndex: 0, down: false, metaHeld: false, boxHighlightedShapes: [] },
       gestureState: aeroStore
         ? aeroStore.getCurrentState().currentScene.gestureState
         : {
