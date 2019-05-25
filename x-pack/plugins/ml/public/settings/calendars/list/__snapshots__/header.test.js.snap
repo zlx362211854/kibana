@@ -34,7 +34,7 @@ exports[`CalendarListsHeader renders header 1`] = `
           >
             <h1>
               <FormattedMessage
-                defaultMessage="Calendars"
+                defaultMessage="日历"
                 id="xpack.ml.settings.calendars.listHeader.calendarsTitle"
                 values={Object {}}
               />
@@ -51,7 +51,7 @@ exports[`CalendarListsHeader renders header 1`] = `
           >
             <p>
               <FormattedMessage
-                defaultMessage="{totalCount} in total"
+                defaultMessage="{totalCount} 总共"
                 id="xpack.ml.settings.calendars.listHeader.calendarsListTotalCount"
                 values={
                   Object {
@@ -90,7 +90,7 @@ exports[`CalendarListsHeader renders header 1`] = `
             type="button"
           >
             <FormattedMessage
-              defaultMessage="Refresh"
+              defaultMessage="刷新"
               id="xpack.ml.settings.calendars.listHeader.refreshButtonLabel"
               values={Object {}}
             />
@@ -112,7 +112,7 @@ exports[`CalendarListsHeader renders header 1`] = `
         component="span"
       >
         <FormattedMessage
-          defaultMessage="Calendars contain a list of scheduled events for which you do not want to generate anomalies, such as planned system outages or public holidays. The same calendar can be assigned to multiple jobs.{br}{learnMoreLink}"
+          defaultMessage="日历包含您不希望生成异常的计划事件列表，例如计划的系统中断或公共假期。 可以将同一日历分配给多个作业。"
           id="xpack.ml.settings.calendars.listHeader.calendarsDescription"
           values={
             Object {
@@ -124,7 +124,7 @@ exports[`CalendarListsHeader renders header 1`] = `
                 type="button"
               >
                 <FormattedMessage
-                  defaultMessage="Learn more"
+                  defaultMessage="了解详情"
                   id="xpack.ml.settings.calendars.listHeader.calendarsDescription.learnMoreLinkText"
                   values={Object {}}
                 />

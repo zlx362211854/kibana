@@ -49,13 +49,15 @@ function getElasticsearchBreadcrumbs(mainInstance) {
 function getKibanaBreadcrumbs(mainInstance) {
   const breadcrumbs = [];
   if (mainInstance.instance) {
-    breadcrumbs.push(createCrumb('#/kibana', 'Kibana'));
-    breadcrumbs.push(createCrumb('#/kibana/instances', i18n.translate(
-      'xpack.monitoring.breadcrumbs.kibana.instancesLabel', { defaultMessage: 'Instances' })
+  //breadcrumbs.push(createCrumb('#/kibana', 'Kibana'));
+    breadcrumbs.push(createCrumb('#/SDCMA', i18n.translate(
+      'xpack.monitoring.breadcrumbs.SDCMA.instancesLabel', { defaultMessage: 'Instances' })));
+    breadcrumbs.push(createCrumb('#/SDCMA/instances', i18n.translate(
+      'xpack.monitoring.breadcrumbs.SDCMA.instancesLabel', { defaultMessage: 'Instances' })
     ));
   } else {
     // don't link to Overview when we're possibly on Overview or its sibling tabs
-    breadcrumbs.push(createCrumb(null, 'Kibana'));
+    breadcrumbs.push(createCrumb(null, 'SDCMA'));
   }
   return breadcrumbs;
 }

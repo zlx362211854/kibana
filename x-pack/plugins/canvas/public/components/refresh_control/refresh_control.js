@@ -56,7 +56,7 @@ export const RefreshControl = ({
 
   const popoverButton = handleClick => (
     <EuiButtonEmpty onClick={handleClick}>
-      <div style={{ display: 'flex', alignItems: 'center' }}>Refresh</div>
+      <div style={{ display: 'flex', alignItems: 'center' }}>刷新</div>
     </EuiButtonEmpty>
   );
 

@@ -64,7 +64,7 @@ describe('IndexDeprecationTable', () => {
       },
     ]
   }
-  noItemsMessage="No items found"
+  noItemsMessage="未找到任何资源"
   onChange={[Function]}
   pagination={
     Object {

@@ -6,6 +6,8 @@
 
 import datemath from '@elastic/datemath';
 import { EuiSuperDatePicker, EuiSuperDatePickerProps } from '@elastic/eui';
+// @ts-ignore
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router-dom';

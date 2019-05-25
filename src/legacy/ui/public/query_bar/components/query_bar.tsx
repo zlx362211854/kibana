@@ -49,7 +49,9 @@ import {
 } from '@elastic/eui';
 
 // @ts-ignore
-import { EuiSuperDatePicker, EuiSuperUpdateButton } from '@elastic/eui';
+import { EuiSuperDatePicker } from '@elastic/eui';
+// @ts-ignore
+import EuiSuperUpdateButton from './superUpdateButton'
 
 import { FormattedMessage, InjectedIntl, injectI18n } from '@kbn/i18n/react';
 import { documentationLinks } from 'ui/documentation_links';
@@ -646,6 +648,7 @@ export class QueryBarUI extends Component<Props, State> {
         isDisabled={this.state.isDateRangeInvalid}
         onClick={this.onClickSubmitButton}
         data-test-subj="querySubmitButton"
+        text='刷新'
       />
     );
     if (this.props.showDatePicker) {

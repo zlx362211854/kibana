@@ -87,9 +87,9 @@ export const UrlTemplateFlyoutComponent = ({
                 output: 'http://company.net/groups?id=users%2Fadmin',
               },
               {
-                input: '/images/favicon.ico',
+                input: '/images/logo.ico',
                 template: 'http://www.site.com{{rawValue}}',
-                output: 'http://www.site.com/images/favicon.ico',
+                output: 'http://www.site.com/images/logo.ico',
               },
             ]}
             columns={[

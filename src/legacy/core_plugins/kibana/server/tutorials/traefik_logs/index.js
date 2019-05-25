@@ -27,11 +27,11 @@ export function traefikLogsSpecProvider(server, context) {
   return {
     id: 'traefikLogs',
     name: i18n.translate('kbn.server.tutorials.traefikLogs.nameTitle', {
-      defaultMessage: 'Traefik logs',
+      defaultMessage: 'Traefik 日志',
     }),
     category: TUTORIAL_CATEGORY.LOGGING,
     shortDescription: i18n.translate('kbn.server.tutorials.traefikLogs.shortDescription', {
-      defaultMessage: 'Collect and parse access logs created by the Traefik Proxy.',
+      defaultMessage: '收集并解析Traefik Proxy创建的访问日志。',
     }),
     longDescription: i18n.translate('kbn.server.tutorials.traefikLogs.longDescription', {
       defaultMessage: 'The `traefik` Filebeat module parses access logs created by Traefik. \
@@ -46,7 +46,7 @@ export function traefikLogsSpecProvider(server, context) {
         {
           id: 'Filebeat-Traefik-Dashboard-ecs',
           linkLabel: i18n.translate('kbn.server.tutorials.traefikLogs.artifacts.dashboards.linkLabel', {
-            defaultMessage: 'Traefik logs dashboard',
+            defaultMessage: 'Traefik 日志仪表盘',
           }),
           isOverview: true
         }

@@ -27,11 +27,11 @@ export function iisLogsSpecProvider(server, context) {
   return {
     id: 'iisLogs',
     name: i18n.translate('kbn.server.tutorials.iisLogs.nameTitle', {
-      defaultMessage: 'IIS logs',
+      defaultMessage: 'IIS 日志',
     }),
     category: TUTORIAL_CATEGORY.LOGGING,
     shortDescription: i18n.translate('kbn.server.tutorials.iisLogs.shortDescription', {
-      defaultMessage: 'Collect and parse access and error logs created by the IIS HTTP server.',
+      defaultMessage: '收集并解析IIS HTTP服务器创建的访问和错误日志。',
     }),
     longDescription: i18n.translate('kbn.server.tutorials.iisLogs.longDescription', {
       defaultMessage: 'The `iis` Filebeat module parses access and error logs created by the IIS HTTP server. \
@@ -46,7 +46,7 @@ export function iisLogsSpecProvider(server, context) {
         {
           id: '4278ad30-fe16-11e7-a3b0-d13028918f9f-ecs',
           linkLabel: i18n.translate('kbn.server.tutorials.iisLogs.artifacts.dashboards.linkLabel', {
-            defaultMessage: 'IIS logs dashboard',
+            defaultMessage: 'IIS 日志仪表板',
           }),
           isOverview: true
         }

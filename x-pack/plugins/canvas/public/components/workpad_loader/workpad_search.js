@@ -30,7 +30,7 @@ export class WorkpadSearch extends React.PureComponent {
   render() {
     return (
       <EuiFieldSearch
-        placeholder="Find workpad"
+        placeholder="寻找工作台"
         value={this.state.searchText}
         onChange={this.setSearchText}
         fullWidth

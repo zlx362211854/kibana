@@ -13,7 +13,7 @@ FeatureCatalogueRegistryProvider.register(() => {
   return {
     id: 'canvas',
     title: 'Canvas',
-    description: 'Showcase your data in a pixel-perfect way.',
+    description: '以完美像素的方式展示您的数据。',
     icon: 'canvasApp',
     path: '/app/canvas',
     showOnHomePage: true,

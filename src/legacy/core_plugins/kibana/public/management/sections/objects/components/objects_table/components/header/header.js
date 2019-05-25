@@ -89,7 +89,7 @@ export const Header = ({
             >
               <FormattedMessage
                 id="kbn.management.objects.objectsTable.header.refreshButtonLabel"
-                defaultMessage="Refresh"
+                defaultMessage="刷新"
               />
             </EuiButtonEmpty>
           </EuiFlexItem>

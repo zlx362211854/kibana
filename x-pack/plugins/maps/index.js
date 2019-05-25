@@ -32,7 +32,7 @@ export function maps(kibana) {
           defaultMessage: 'Map application'
         }),
         main: 'plugins/maps/index',
-        icon: 'plugins/maps/icon.svg',
+        icon: 'plugins/maps/maps.png',
         euiIconType: APP_ICON,
       },
       injectDefaultVars(server) {

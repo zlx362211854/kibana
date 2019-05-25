@@ -19,16 +19,14 @@ import { i18n } from '@kbn/i18n';
  */
 export function hitsToGeoJson(hits, flattenHit, geoFieldName, geoFieldType) {
   const features = [];
-  const tmpGeometriesAccumulator = [];
+  hits.forEach(hit => {
+    const properties = flattenHit(hit);
 
-  for (let i = 0; i < hits.length; i++) {
-    const properties = flattenHit(hits[i]);
-
-    tmpGeometriesAccumulator.length = 0;//truncate accumulator
+    let geometries;
     if (geoFieldType === 'geo_point') {
-      geoPointToGeometry(properties[geoFieldName], tmpGeometriesAccumulator);
+      geometries = geoPointToGeometry(properties[geoFieldName]);
     } else if (geoFieldType === 'geo_shape') {
-      geoShapeToGeometry(properties[geoFieldName], tmpGeometriesAccumulator);
+      geometries = geoShapeToGeometry(properties[geoFieldName]);
     } else {
       const errorMessage = i18n.translate('xpack.maps.elasticsearch_geo_utils.unsupportedFieldTypeErrorMessage', {
         defaultMessage: 'Unsupported field type, expected: geo_shape or geo_point, you provided: {geoFieldType}',
@@ -36,18 +34,18 @@ export function hitsToGeoJson(hits, flattenHit, geoFieldName, geoFieldType) {
       });
       throw new Error(errorMessage);
     }
+
     // don't include geometry field value in properties
     delete properties[geoFieldName];
 
-    //create new geojson Feature for every individual geojson geometry.
-    for (let j = 0; j < tmpGeometriesAccumulator.length; j++) {
+    return geometries.map(geometry => {
       features.push({
         type: 'Feature',
-        geometry: tmpGeometriesAccumulator[j],
+        geometry: geometry,
         properties: properties
       });
-    }
-  }
+    });
+  });
 
   return {
     type: 'FeatureCollection',
@@ -62,9 +60,9 @@ function pointGeometryFactory(lat, lon) {
   };
 }
 
-export function geoPointToGeometry(value, accumulator) {
+export function geoPointToGeometry(value) {
   if (!value) {
-    return;
+    return [];
   }
 
   if (typeof value === 'string') {
@@ -79,14 +77,12 @@ export function geoPointToGeometry(value, accumulator) {
     // Geo-point expressed as a string with the format: "lat,lon".
     const lat = parseFloat(commaSplit[0]);
     const lon = parseFloat(commaSplit[1]);
-    accumulator.push(pointGeometryFactory(lat, lon));
-    return;
+    return [pointGeometryFactory(lat, lon)];
   }
 
   if (typeof value === 'object' && _.has(value, 'lat') && _.has(value, 'lon')) {
     // Geo-point expressed as an object with the format: { lon, lat }
-    accumulator.push(pointGeometryFactory(value.lat, value.lon));
-    return;
+    return [pointGeometryFactory(value.lat, value.lon)];
   }
 
   if (!Array.isArray(value)) {
@@ -105,27 +101,31 @@ export function geoPointToGeometry(value, accumulator) {
     // Geo-point expressed as an array with the format: [lon, lat]
     const lat = value[1];
     const lon = value[0];
-    accumulator.push(pointGeometryFactory(lat, lon));
-    return;
+    return [pointGeometryFactory(lat, lon)];
   }
 
   // Geo-point expressed as an array of values
-  for (let i = 0; i < value.length; i++) {
-    geoPointToGeometry(value[i], accumulator);
-  }
+  return value.reduce(
+    (points, itemInValueArray) => {
+      return points.concat(geoPointToGeometry(itemInValueArray));
+    },
+    []
+  );
 }
 
-export function geoShapeToGeometry(value, accumulator) {
+export function geoShapeToGeometry(value) {
   if (!value) {
-    return;
+    return [];
   }
 
   if (Array.isArray(value)) {
     // value expressed as an array of values
-    for (let i = 0; i < value.length; i++) {
-      geoShapeToGeometry(value[i], accumulator);
-    }
-    return;
+    return value.reduce(
+      (shapes, itemInValueArray) => {
+        return shapes.concat(geoShapeToGeometry(itemInValueArray));
+      },
+      []
+    );
   }
 
   // TODO handle case where value is WKT and convert to geojson
@@ -136,18 +136,13 @@ export function geoShapeToGeometry(value, accumulator) {
     throw new Error(errorMessage);
   }
 
-  const geoJson = {
-    type: value.type,
-    coordinates: value.coordinates
-  };
+  const geoJson = _.cloneDeep(value);
 
   // https://www.elastic.co/guide/en/elasticsearch/reference/current/geo-shape.html#input-structure
   // For some unknown compatibility nightmarish reason, Elasticsearch types are not capitalized the same as geojson types
   // For example: 'LineString' geojson type is 'linestring' in elasticsearch
   // Convert feature types to geojson spec values
-  // Sometimes, the type in ES is capitalized correctly. Sometimes it is not. It depends on how the doc was ingested
-  // The below is the correction in-place.
-  switch (value.type) {
+  switch (geoJson.type) {
     case 'point':
       geoJson.type = 'Point';
       break;
@@ -175,7 +170,7 @@ export function geoShapeToGeometry(value, accumulator) {
       throw new Error(`Unable to convert ${geoJson.type} geometry to geojson, not supported`);
   }
 
-  accumulator.push(geoJson);
+  return [geoJson];
 }
 
 const POLYGON_COORDINATES_EXTERIOR_INDEX = 0;

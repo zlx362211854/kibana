@@ -70,7 +70,7 @@ export function FilterListsHeader({ totalCount, refreshFilterLists }) {
               >
                 <FormattedMessage
                   id="xpack.ml.settings.filterLists.listHeader.refreshButtonLabel"
-                  defaultMessage="Refresh"
+                  defaultMessage="刷新"
                 />
               </EuiButtonEmpty>
             </EuiFlexItem>

@@ -17,7 +17,7 @@ FeatureCatalogueRegistryProvider.register(() => {
     id: APP_ID,
     title: getAppTitle(),
     description: i18n.translate('xpack.maps.feature.appDescription', {
-      defaultMessage: 'Explore geospatial data from Elasticsearch and the Elastic Maps Service'
+      defaultMessage: '探索Elasticsearch和Elastic 地图服务的地理空间数据'
     }),
     icon: APP_ICON,
     path: '/app/maps',

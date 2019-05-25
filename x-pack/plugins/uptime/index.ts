@@ -22,7 +22,7 @@ export const uptime = (kibana: any) =>
           defaultMessage: 'Uptime monitoring',
           description: 'The description text that will be shown to users in Kibana',
         }),
-        icon: 'plugins/uptime/icons/heartbeat_white.svg',
+        icon: 'plugins/uptime/icons/uptime.png',
         euiIconType: 'uptimeApp',
         title: i18n.translate('xpack.uptime.uptimeFeatureCatalogueTitle', {
           defaultMessage: 'Uptime',

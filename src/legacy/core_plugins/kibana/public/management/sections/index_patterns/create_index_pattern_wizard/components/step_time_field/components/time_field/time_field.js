@@ -67,7 +67,7 @@ export const TimeFieldComponent = ({
                   >
                     <FormattedMessage
                       id="kbn.management.createIndexPattern.stepTime.refreshButton"
-                      defaultMessage="Refresh"
+                      defaultMessage="刷新"
                     />
                   </EuiLink>
                 )

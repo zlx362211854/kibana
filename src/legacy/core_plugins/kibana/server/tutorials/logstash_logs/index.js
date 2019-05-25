@@ -27,11 +27,11 @@ export function logstashLogsSpecProvider(server, context) {
   return {
     id: 'logstashLogs',
     name: i18n.translate('kbn.server.tutorials.logstashLogs.nameTitle', {
-      defaultMessage: 'Logstash logs',
+      defaultMessage: 'Logstash 日志',
     }),
     category: TUTORIAL_CATEGORY.LOGGING,
     shortDescription: i18n.translate('kbn.server.tutorials.logstashLogs.shortDescription', {
-      defaultMessage: 'Collect and parse debug and slow logs created by Logstash itself.',
+      defaultMessage: '收集并解析由Logstash本身创建的调试和慢速日志。',
     }),
     longDescription: i18n.translate('kbn.server.tutorials.logstashLogs.longDescription', {
       defaultMessage: 'The `logstash` Filebeat module parses debug and slow logs created by Logstash itself. \

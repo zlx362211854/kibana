@@ -22,7 +22,7 @@ import { wrapInI18nContext } from 'ui/i18n';
 import { uiModules } from '../modules';
 import { FilterBar } from './filter_bar';
 
-const app = uiModules.get('app/kibana', ['react']);
+const app = uiModules.get('app/sdcma', ['react']);
 
 app.directive('filterBar', reactDirective => {
   return reactDirective(wrapInI18nContext(FilterBar));

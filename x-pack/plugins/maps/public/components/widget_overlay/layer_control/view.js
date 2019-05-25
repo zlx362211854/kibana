@@ -26,7 +26,7 @@ export function LayerControl({ showAddLayerWizard }) {
       >
         <FormattedMessage
           id="xpack.maps.layerControl.addLayerButtonLabel"
-          defaultMessage="Add layer"
+          defaultMessage="添加图层"
         />
       </EuiButtonEmpty>
     </EuiFlexItem>
@@ -46,7 +46,7 @@ export function LayerControl({ showAddLayerWizard }) {
               <h2>
                 <FormattedMessage
                   id="xpack.maps.layerControl.layersTitle"
-                  defaultMessage="Layers"
+                  defaultMessage="图层"
                 />
               </h2>
             </EuiTitle>

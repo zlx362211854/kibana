@@ -27,11 +27,11 @@ export function postgresqlLogsSpecProvider(server, context) {
   return {
     id: 'postgresqlLogs',
     name: i18n.translate('kbn.server.tutorials.postgresqlLogs.nameTitle', {
-      defaultMessage: 'PostgreSQL logs',
+      defaultMessage: 'PostgreSQL 日志',
     }),
     category: TUTORIAL_CATEGORY.LOGGING,
     shortDescription: i18n.translate('kbn.server.tutorials.postgresqlLogs.shortDescription', {
-      defaultMessage: 'Collect and parse error and slow logs created by PostgreSQL.',
+      defaultMessage: '收集并解析PostgreSQL创建的错误和慢速日志。',
     }),
     longDescription: i18n.translate('kbn.server.tutorials.postgresqlLogs.longDescription', {
       defaultMessage: 'The `postgresql` Filebeat module parses error and slow logs created by PostgreSQL. \
@@ -46,7 +46,7 @@ export function postgresqlLogsSpecProvider(server, context) {
         {
           id: '158be870-87f4-11e7-ad9c-db80de0bf8d3-ecs',
           linkLabel: i18n.translate('kbn.server.tutorials.postgresqlLogs.artifacts.dashboards.linkLabel', {
-            defaultMessage: 'PostgreSQL logs dashboard',
+            defaultMessage: 'PostgreSQL 日志仪表盘',
           }),
           isOverview: true
         }

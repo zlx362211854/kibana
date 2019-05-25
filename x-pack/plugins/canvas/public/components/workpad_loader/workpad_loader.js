@@ -174,7 +174,7 @@ export class WorkpadLoader extends React.PureComponent {
     const columns = [
       {
         field: 'name',
-        name: 'Workpad Name',
+        name: '工作台名称',
         sortable: true,
         dataType: 'string',
         render: (name, workpad) => {
@@ -194,7 +194,7 @@ export class WorkpadLoader extends React.PureComponent {
       },
       {
         field: '@created',
-        name: 'Created',
+        name: '创建时间',
         sortable: true,
         dataType: 'date',
         width: '20%',
@@ -202,7 +202,7 @@ export class WorkpadLoader extends React.PureComponent {
       },
       {
         field: '@timestamp',
-        name: 'Updated',
+        name: '更新时间',
         sortable: true,
         dataType: 'date',
         width: '20%',
@@ -302,7 +302,7 @@ export class WorkpadLoader extends React.PureComponent {
       <EuiFilePicker
         compressed
         className="canvasWorkpad__upload--compressed"
-        initialPromptText="Import workpad JSON file"
+        initialPromptText="传入json文件"
         onChange={([file]) => uploadWorkpad(file, this.onUpload)}
         accept="application/json"
         disabled={createPending || !canUserWrite}

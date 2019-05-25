@@ -9,8 +9,8 @@ import header from './header.png';
 
 export const areaChart: ElementFactory = () => ({
   name: 'areaChart',
-  displayName: 'Area chart',
-  help: 'A line chart with a filled body',
+  displayName: '面积图',
+  help: '带有实体的折线图',
   image: header,
   expression: `filters
   | demodata

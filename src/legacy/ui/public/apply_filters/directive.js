@@ -23,7 +23,7 @@ import template from './directive.html';
 import { ApplyFiltersPopover } from './apply_filters_popover';
 import { FilterBarLibMapAndFlattenFiltersProvider } from '../filter_bar/lib/map_and_flatten_filters';
 
-const app = uiModules.get('app/kibana', ['react']);
+const app = uiModules.get('app/sdcma', ['react']);
 
 app.directive('applyFiltersPopoverComponent', (reactDirective) => {
   return reactDirective(ApplyFiltersPopover);

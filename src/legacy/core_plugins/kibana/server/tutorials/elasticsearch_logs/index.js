@@ -27,12 +27,12 @@ export function elasticsearchLogsSpecProvider(server, context) {
   return {
     id: 'elasticsearchLogs',
     name: i18n.translate('kbn.server.tutorials.elasticsearchLogs.nameTitle', {
-      defaultMessage: 'Elasticsearch logs',
+      defaultMessage: 'Elasticsearch 日志',
     }),
     category: TUTORIAL_CATEGORY.LOGGING,
     isBeta: true,
     shortDescription: i18n.translate('kbn.server.tutorials.elasticsearchLogs.shortDescription', {
-      defaultMessage: 'Collect and parse logs created by Elasticsearch.',
+      defaultMessage: '收集并解析Elasticsearch创建的日志。',
     }),
     longDescription: i18n.translate('kbn.server.tutorials.elasticsearchLogs.longDescription', {
       defaultMessage: 'The `elasticsearch` Filebeat module parses logs created by Elasticsearch. \

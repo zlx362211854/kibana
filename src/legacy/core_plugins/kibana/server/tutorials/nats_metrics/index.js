@@ -26,11 +26,11 @@ export function natsMetricsSpecProvider(server, context) {
   return {
     id: 'natsMetrics',
     name: i18n.translate('kbn.server.tutorials.natsMetrics.nameTitle', {
-      defaultMessage: 'Nats metrics',
+      defaultMessage: 'Nats 指标',
     }),
     category: TUTORIAL_CATEGORY.METRICS,
     shortDescription: i18n.translate('kbn.server.tutorials.natsMetrics.shortDescription', {
-      defaultMessage: 'Fetch monitoring metrics from the Nats server.',
+      defaultMessage: '从Nats服务器获取监控指标。',
     }),
     longDescription: i18n.translate('kbn.server.tutorials.natsMetrics.longDescription', {
       defaultMessage: 'The `nats` Metricbeat module fetches monitoring metrics from Nats. \
@@ -45,7 +45,7 @@ export function natsMetricsSpecProvider(server, context) {
         {
           id: 'Metricbeat-Nats-Dashboard-ecs',
           linkLabel: i18n.translate('kbn.server.tutorials.natsMetrics.artifacts.dashboards.linkLabel', {
-            defaultMessage: 'Nats metrics dashboard',
+            defaultMessage: 'Nats 指标仪表盘',
           }),
           isOverview: true
         }

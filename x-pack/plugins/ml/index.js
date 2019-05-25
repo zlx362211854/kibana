@@ -48,7 +48,7 @@ export const ml = (kibana) => {
         description: i18n.translate('xpack.ml.mlNavDescription', {
           defaultMessage: 'Machine Learning for the Elastic Stack'
         }),
-        icon: 'plugins/ml/ml.svg',
+        icon: 'plugins/ml/ml.png',
         euiIconType: 'machineLearningApp',
         main: 'plugins/ml/app',
       },

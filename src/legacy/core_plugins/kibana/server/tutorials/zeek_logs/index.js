@@ -27,11 +27,11 @@ export function zeekLogsSpecProvider(server, context) {
   return {
     id: 'zeekLogs',
     name: i18n.translate('kbn.server.tutorials.zeekLogs.nameTitle', {
-      defaultMessage: 'Zeek logs',
+      defaultMessage: 'Zeek 日志',
     }),
     category: TUTORIAL_CATEGORY.SECURITY,
     shortDescription: i18n.translate('kbn.server.tutorials.zeekLogs.shortDescription', {
-      defaultMessage: 'Collect the logs created by Zeek/Bro.',
+      defaultMessage: '收集Zeek / Bro创建的日志。',
     }),
     longDescription: i18n.translate('kbn.server.tutorials.zeekLogs.longDescription', {
       defaultMessage: 'The `zeek` Filebeat module collects the logs from \
@@ -47,7 +47,7 @@ export function zeekLogsSpecProvider(server, context) {
         {
           id: '7cbb5410-3700-11e9-aa6d-ff445a78330c',
           linkLabel: i18n.translate('kbn.server.tutorials.zeekLogs.artifacts.dashboards.linkLabel', {
-            defaultMessage: 'Zeek logs dashboard',
+            defaultMessage: 'Zeek 日志仪表盘',
           }),
           isOverview: true
         }

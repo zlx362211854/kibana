@@ -65,7 +65,7 @@ export const CheckupControlsUI: StatelessComponent<CheckupControlsProps> = ({
       >
         <FormattedMessage
           id="xpack.upgradeAssistant.checkupTab.controls.refreshButtonLabel"
-          defaultMessage="Refresh"
+          defaultMessage="刷新"
         />
       </EuiButton>
     </EuiFlexItem>

@@ -36,7 +36,7 @@ export class WorkpadHeader extends React.PureComponent {
     <EuiToolTip position="bottom" content="Enter fullscreen mode">
       <EuiButtonIcon
         iconType="fullScreen"
-        aria-label="View fullscreen"
+        aria-label="全屏视图"
         onClick={toggleFullscreen}
       />
     </EuiToolTip>
@@ -79,7 +79,7 @@ export class WorkpadHeader extends React.PureComponent {
     if (!this.props.canUserWrite) {
       return "You don't have permission to edit this workpad";
     } else {
-      return this.props.isWriteable ? 'Hide editing controls' : 'Show editing controls';
+      return this.props.isWriteable ? '隐藏编辑控件' : '显示编辑控件';
     }
   };
 
@@ -143,7 +143,7 @@ export class WorkpadHeader extends React.PureComponent {
                     iconType="vector"
                     onClick={() => setShowElementModal(true)}
                   >
-                    Add element
+                    添加元素
                   </EuiButton>
                 </EuiFlexItem>
               </EuiFlexGroup>

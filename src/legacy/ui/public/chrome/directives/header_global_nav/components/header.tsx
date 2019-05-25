@@ -21,6 +21,8 @@ import Url from 'url';
 
 import React, { Component, createRef, Fragment } from 'react';
 import * as Rx from 'rxjs';
+import classNames from 'classnames';
+
 
 import {
   // TODO: add type annotations
@@ -51,6 +53,7 @@ import {
 } from '@elastic/eui';
 
 import { HeaderBreadcrumbs } from './header_breadcrumbs';
+// @ts-ignore
 import { HeaderHelpMenu } from './header_help_menu';
 import { HeaderNavControls } from './header_nav_controls';
 
@@ -80,7 +83,12 @@ interface Props {
 // protects from truncating just the last couple (6) characters
 const TRUNCATE_LIMIT: number = 64;
 const TRUNCATE_AT: number = 58;
-
+const backgroundStyle = {
+  background: '#3B3B3B'
+}
+const logoBackgroundStyle = {
+  background: '#358AFF'
+}
 function extendRecentlyAccessedHistoryItem(
   navLinks: NavLink[],
   recentlyAccessed: RecentlyAccessedHistoryItem
@@ -174,7 +182,7 @@ class HeaderUI extends Component<Props, State> {
     return (
       <EuiHeaderLogo
         data-test-subj="logo"
-        iconType="logoKibana"
+        iconType='logoKibana'
         onClick={this.onNavClick}
         href={homeHref}
         aria-label={intl.formatMessage({
@@ -197,7 +205,8 @@ class HeaderUI extends Component<Props, State> {
   }
 
   public render() {
-    const { appTitle, breadcrumbs$, isVisible, navControls, helpExtension$, intl } = this.props;
+    // @ts-ignore
+    const { appTitle, breadcrumbs$, isVisible, navControls, helpExtension$, intl, homeHref } = this.props;
     const { navLinks, recentlyAccessed } = this.state;
 
     if (!isVisible) {
@@ -205,6 +214,7 @@ class HeaderUI extends Component<Props, State> {
     }
 
     const leftNavControls = navControls.bySide[NavControlSide.Left];
+    // @ts-ignore
     const rightNavControls = navControls.bySide[NavControlSide.Right];
 
     let navLinksArray = navLinks.map(navLink =>
@@ -214,32 +224,46 @@ class HeaderUI extends Component<Props, State> {
             key: navLink.id,
             label: navLink.title,
             href: navLink.href,
-            iconType: navLink.euiIconType,
+            // iconType: navLink.euiIconType,
+            // icon:
+            //   !navLink.euiIconType && navLink.icon ? (
+            //     <EuiImage
+            //       size="s"
+            //       alt=""
+            //       aria-hidden={true}
+            //       url={chrome.addBasePath(`/${navLink.icon}`)}
+            //     />
+            //   ) : (
+            //     undefined
+            //   ),
             icon:
-              !navLink.euiIconType && navLink.icon ? (
                 <EuiImage
                   size="s"
                   alt=""
                   aria-hidden={true}
                   url={chrome.addBasePath(`/${navLink.icon}`)}
-                />
-              ) : (
-                undefined
-              ),
+                />,
             isActive: navLink.active,
             'data-test-subj': 'navDrawerAppsMenuLink',
           }
     );
     // filter out the null items
     navLinksArray = navLinksArray.filter(item => item !== null);
-
+    const navStyleName = classNames('navStyle1');
     const recentLinksArray = [
       {
         label: intl.formatMessage({
           id: 'common.ui.chrome.sideGlobalNav.viewRecentItemsLabel',
           defaultMessage: 'Recently viewed',
         }),
-        iconType: 'clock',
+        // iconType: 'clock',
+        icon:
+          <EuiImage
+            size="s"
+            alt=""
+            aria-hidden={true}
+            url={require(`./clock.png`)}
+          />,
         isDisabled: recentlyAccessed.length > 0 ? false : true,
         flyoutMenu: {
           title: intl.formatMessage({
@@ -252,12 +276,12 @@ class HeaderUI extends Component<Props, State> {
             title: `${item.label}`,
             'aria-label': item.label,
             href: item.href,
-            iconType: item.euiIconType,
+            iconType: 'alert',
           })),
         },
       },
     ];
-
+    // const style = require('./style.scss')
     return (
       <Fragment>
         <EuiHeader>
@@ -266,26 +290,27 @@ class HeaderUI extends Component<Props, State> {
               <EuiHeaderSectionItem border="right">{this.renderMenuTrigger()}</EuiHeaderSectionItem>
             </EuiShowFor>
 
-            <EuiHeaderSectionItem border="right">{this.renderLogo()}</EuiHeaderSectionItem>
+            <EuiHeaderSectionItem style={logoBackgroundStyle} border="right">
+              {/*{this.renderLogo()}*/}
+              <a href={homeHref}>
+                <img
+                  width="48"
+                  alt="logo"
+                  src={require('./logo.png')}
+                />
+              </a>
+            </EuiHeaderSectionItem>
 
             <HeaderNavControls navControls={leftNavControls} />
           </EuiHeaderSection>
 
           <HeaderBreadcrumbs appTitle={appTitle} breadcrumbs$={breadcrumbs$} />
-
-          <EuiHeaderSection side="right">
-            <EuiHeaderSectionItem>
-              <HeaderHelpMenu helpExtension$={helpExtension$} />
-            </EuiHeaderSectionItem>
-
-            <HeaderNavControls navControls={rightNavControls} />
-          </EuiHeaderSection>
         </EuiHeader>
 
-        <EuiNavDrawer ref={this.navDrawerRef} data-test-subj="navDrawer">
+        <EuiNavDrawer style={backgroundStyle} ref={this.navDrawerRef} data-test-subj="navDrawer">
           <EuiNavDrawerGroup listItems={recentLinksArray} />
           <EuiHorizontalRule margin="none" />
-          <EuiNavDrawerGroup data-test-subj="navDrawerAppsMenu" listItems={navLinksArray} />
+          <EuiNavDrawerGroup className={navStyleName}  data-test-subj="navDrawerAppsMenu" listItems={navLinksArray} />
         </EuiNavDrawer>
       </Fragment>
     );
@@ -293,6 +318,7 @@ class HeaderUI extends Component<Props, State> {
 
   private onNavClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const anchor = findClosestAnchor((event as any).nativeEvent.target);
+
     if (!anchor) {
       return;
     }

@@ -26,11 +26,11 @@ export function mssqlMetricsSpecProvider(server, context) {
   return {
     id: 'mssqlMetrics',
     name: i18n.translate('kbn.server.tutorials.mssqlMetrics.nameTitle', {
-      defaultMessage: 'Microsoft SQL Server Metrics',
+      defaultMessage: 'Microsoft SQL Server 指标',
     }),
     category: TUTORIAL_CATEGORY.METRICS,
     shortDescription: i18n.translate('kbn.server.tutorials.mssqlMetrics.shortDescription', {
-      defaultMessage: 'Fetch monitoring metrics from a Microsoft SQL Server instance',
+      defaultMessage: '从Microsoft SQL Server实例获取监控指标',
     }),
     longDescription: i18n.translate('kbn.server.tutorials.mssqlMetrics.longDescription', {
       defaultMessage: 'The `mssql` Metricbeat module fetches monitoring, log and performance metrics from a Microsoft SQL Server instance. \
@@ -46,7 +46,7 @@ export function mssqlMetricsSpecProvider(server, context) {
         {
           id: 'a2ead240-18bb-11e9-9836-f37dedd3b411-ecs',
           linkLabel: i18n.translate('kbn.server.tutorials.mssqlMetrics.artifacts.dashboards.linkLabel', {
-            defaultMessage: 'Microsoft SQL Server metrics dashboard',
+            defaultMessage: 'Microsoft SQL Server 指标仪表盘',
           }),
           isOverview: true
         }

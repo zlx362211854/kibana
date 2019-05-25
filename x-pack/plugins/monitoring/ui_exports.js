@@ -20,7 +20,7 @@ export const getUiExports = () => ({
     description: i18n.translate('xpack.monitoring.uiExportsDescription', {
       defaultMessage: 'Monitoring for Elastic Stack',
     }),
-    icon: 'plugins/monitoring/icons/monitoring.svg',
+    icon: 'plugins/monitoring/icons/monitoring.png',
     euiIconType: 'monitoringApp',
     linkToLastSubUrl: false,
     main: 'plugins/monitoring/monitoring',

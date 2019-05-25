@@ -24,7 +24,7 @@ export function infra(kibana: any) {
         description: i18n.translate('xpack.infra.infrastructureDescription', {
           defaultMessage: 'Explore your infrastructure',
         }),
-        icon: 'plugins/infra/images/infra_mono_white.svg',
+        icon: 'plugins/infra/images/home.png',
         main: 'plugins/infra/app',
         title: i18n.translate('xpack.infra.infrastructureTitle', {
           defaultMessage: 'Infrastructure',
@@ -39,7 +39,7 @@ export function infra(kibana: any) {
           description: i18n.translate('xpack.infra.linkInfrastructureDescription', {
             defaultMessage: 'Explore your infrastructure',
           }),
-          icon: 'plugins/infra/images/infra_mono_white.svg',
+          icon: 'plugins/infra/images/home.png',
           euiIconType: 'infraApp',
           id: 'infra:home',
           order: 8000,
@@ -52,7 +52,7 @@ export function infra(kibana: any) {
           description: i18n.translate('xpack.infra.linkLogsDescription', {
             defaultMessage: 'Explore your logs',
           }),
-          icon: 'plugins/infra/images/logging_mono_white.svg',
+          icon: 'plugins/infra/images/logs.png',
           euiIconType: 'loggingApp',
           id: 'infra:logs',
           order: 8001,

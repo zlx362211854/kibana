@@ -70,7 +70,7 @@ export function CalendarsListHeader({ totalCount, refreshCalendars }) {
               >
                 <FormattedMessage
                   id="xpack.ml.settings.calendars.listHeader.refreshButtonLabel"
-                  defaultMessage="Refresh"
+                  defaultMessage="刷新"
                 />
               </EuiButtonEmpty>
             </EuiFlexItem>

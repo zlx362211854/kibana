@@ -25,11 +25,11 @@ export function cloudwatchLogsSpecProvider(server, context) {
   return {
     id: 'cloudwatchLogs',
     name: i18n.translate('kbn.server.tutorials.cloudwatchLogs.nameTitle', {
-      defaultMessage: 'Cloudwatch Logs',
+      defaultMessage: 'Cloudwatch 日志',
     }),
     category: TUTORIAL_CATEGORY.LOGGING,
     shortDescription: i18n.translate('kbn.server.tutorials.cloudwatchLogs.shortDescription', {
-      defaultMessage: 'Collect Cloudwatch logs with Functionbeat',
+      defaultMessage: '使用Functionbeat收集Cloudwatch日志',
     }),
     longDescription: i18n.translate('kbn.server.tutorials.cloudwatchLogs.longDescription', {
       defaultMessage: 'Collect Cloudwatch logs by deploying Functionbeat to run as \

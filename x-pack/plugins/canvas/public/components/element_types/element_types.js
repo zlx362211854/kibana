@@ -61,7 +61,7 @@ export const ElementTypes = ({ elements, onClick, search, setSearch }) => {
           <EuiFlexItem>
             <EuiFieldSearch
               className="canvasElements__filter"
-              placeholder="Filter elements"
+              placeholder="筛选元素"
               onChange={e => setSearch(e.target.value)}
               value={search}
             />

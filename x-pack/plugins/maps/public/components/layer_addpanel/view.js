@@ -74,7 +74,7 @@ export class AddLayerPanel extends Component {
       >
         <FormattedMessage
           id="xpack.maps.addLayerPanel.addLayerButtonLabel"
-          defaultMessage="Add layer"
+          defaultMessage="添加图层"
         />
       </EuiButton>
     );
@@ -109,7 +109,7 @@ export class AddLayerPanel extends Component {
           <h2>
             <FormattedMessage
               id="xpack.maps.addLayerPanel.chooseDataSourceTitle"
-              defaultMessage="Choose data source"
+              defaultMessage="选择数据源"
             />
           </h2>
         </EuiTitle>
@@ -140,7 +140,7 @@ export class AddLayerPanel extends Component {
         >
           <FormattedMessage
             id="xpack.maps.addLayerPanel.changeDataSourceButtonLabel"
-            defaultMessage="Change data source"
+            defaultMessage="更换数据源"
           />
         </EuiButtonEmpty>
         <EuiSpacer size="s" />
@@ -170,7 +170,7 @@ export class AddLayerPanel extends Component {
             <h2>
               <FormattedMessage
                 id="xpack.maps.addLayerPanel.panelTitle"
-                defaultMessage="Add layer"
+                defaultMessage="添加图层"
               />
             </h2>
           </EuiTitle>
@@ -193,7 +193,7 @@ export class AddLayerPanel extends Component {
               >
                 <FormattedMessage
                   id="xpack.maps.addLayerPanel.cancelButtonLabel"
-                  defaultMessage="Cancel"
+                  defaultMessage="取消"
                 />
               </EuiButtonEmpty>
             </EuiFlexItem>

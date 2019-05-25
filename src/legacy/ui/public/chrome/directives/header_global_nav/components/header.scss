@@ -1,0 +1,12 @@
+
+.navStyle1 {
+  background: #ccc;
+  .euiListGroupItem {
+    &:hover {
+      background: #358AFF;
+    }
+  }
+  .euiListGroupItem-isActive {
+    background: #358AFF;
+  }
+}

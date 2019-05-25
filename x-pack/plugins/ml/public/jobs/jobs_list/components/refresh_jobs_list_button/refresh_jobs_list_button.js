@@ -23,7 +23,7 @@ export const RefreshJobsListButton = ({ onRefreshClick, isRefreshing }) => (
   >
     <FormattedMessage
       id="xpack.ml.jobsList.refreshButtonLabel"
-      defaultMessage="Refresh"
+      defaultMessage="刷新"
     />
   </EuiButtonEmpty>
 );

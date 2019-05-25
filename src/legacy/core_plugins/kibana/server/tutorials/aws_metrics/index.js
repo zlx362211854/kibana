@@ -26,15 +26,15 @@ export function awsMetricsSpecProvider(server, context) {
   return {
     id: 'awsMetrics',
     name: i18n.translate('kbn.server.tutorials.awsMetrics.nameTitle', {
-      defaultMessage: 'AWS metrics',
+      defaultMessage: 'AWS 指标',
     }),
     category: TUTORIAL_CATEGORY.METRICS,
     shortDescription: i18n.translate('kbn.server.tutorials.awsMetrics.shortDescription', {
-      defaultMessage: 'Fetch monitoring metrics for EC2 instances from the AWS APIs and Cloudwatch.',
+      defaultMessage: '从AWS API和Cloudwatch获取EC2实例的监控指标。',
     }),
     longDescription: i18n.translate('kbn.server.tutorials.awsMetrics.longDescription', {
-      defaultMessage: 'The `aws` Metricbeat module fetches monitoring metrics from the AWS APIs and Cloudwatch. \
-[Learn more]({learnMoreLink}).',
+      defaultMessage: '`aws` Metricbeat模块从AWS API和Cloudwatch获取监控指标。 \
+[了解详情]({learnMoreLink}).',
       values: {
         learnMoreLink: '{config.docs.beats.metricbeat}/metricbeat-module-aws.html',
       },
@@ -46,7 +46,7 @@ export function awsMetricsSpecProvider(server, context) {
         {
           id: 'c5846400-f7fb-11e8-af03-c999c9dea608-ecs',
           linkLabel: i18n.translate('kbn.server.tutorials.awsMetrics.artifacts.dashboards.linkLabel', {
-            defaultMessage: 'AWS metrics dashboard',
+            defaultMessage: 'AWS 指标仪表盘',
           }),
           isOverview: true
         }

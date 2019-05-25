@@ -98,7 +98,7 @@ FeatureCatalogueRegistryProvider.register(i18n => {
       defaultMessage: 'Directly edit settings that control behavior in Kibana.',
     }),
     icon: 'advancedSettingsApp',
-    path: '/app/kibana#/management/kibana/settings',
+    path: '/app/kibana#/management/sdcma/settings',
     showOnHomePage: false,
     category: FeatureCatalogueCategory.ADMIN
   };

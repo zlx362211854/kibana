@@ -22,7 +22,7 @@ export const WorkpadManager = ({ onClose }) => {
   const tabs = [
     {
       id: 'workpadLoader',
-      name: 'My Workpads',
+      name: '我的工作台',
       content: (
         <Fragment>
           <EuiSpacer />
@@ -32,7 +32,7 @@ export const WorkpadManager = ({ onClose }) => {
     },
     {
       id: 'workpadTemplates',
-      name: 'Templates',
+      name: '模版',
       content: (
         <Fragment>
           <EuiSpacer />
@@ -46,7 +46,7 @@ export const WorkpadManager = ({ onClose }) => {
       <EuiModalHeader className="canvasHomeApp__modalHeader">
         <EuiFlexGroup alignItems="center" gutterSize="s">
           <EuiFlexItem grow={false}>
-            <EuiModalHeaderTitle>Canvas workpads</EuiModalHeaderTitle>
+            <EuiModalHeaderTitle>Canvas 工作台</EuiModalHeaderTitle>
           </EuiFlexItem>
         </EuiFlexGroup>
       </EuiModalHeader>

@@ -29,7 +29,7 @@ export function apm(kibana) {
           defaultMessage: 'APM for the Elastic Stack'
         }),
         main: 'plugins/apm/index',
-        icon: 'plugins/apm/icon.svg',
+        icon: 'plugins/apm/apm.png',
         euiIconType: 'apmApp',
         order: 8100
       },

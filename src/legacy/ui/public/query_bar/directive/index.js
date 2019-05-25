@@ -24,7 +24,7 @@ import { wrapInI18nContext } from 'ui/i18n';
 import { uiModules } from '../../modules';
 import { QueryBar } from '../components';
 
-const app = uiModules.get('app/kibana', ['react']);
+const app = uiModules.get('app/sdcma', ['react']);
 
 app.directive('queryBar', (reactDirective, localStorage) => {
   return reactDirective(

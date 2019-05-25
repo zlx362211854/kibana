@@ -65,18 +65,18 @@ export class WorkpadConfig extends PureComponent {
     return (
       <div>
         <EuiTitle size="xs">
-          <h4>Workpad</h4>
+          <h4>工作台</h4>
         </EuiTitle>
 
         <EuiSpacer size="m" />
 
-        <EuiFormRow label="Name" compressed>
+        <EuiFormRow label="名称" compressed>
           <EuiFieldText value={name} onChange={e => setName(e.target.value)} />
         </EuiFormRow>
 
         <EuiFlexGroup gutterSize="s" alignItems="center">
           <EuiFlexItem>
-            <EuiFormRow label="Width" compressed>
+            <EuiFormRow label="宽度" compressed>
               <EuiFieldNumber
                 onChange={e => setSize({ width: Number(e.target.value), height: size.height })}
                 value={size.width}
@@ -85,19 +85,19 @@ export class WorkpadConfig extends PureComponent {
           </EuiFlexItem>
           <EuiFlexItem grow={false}>
             <EuiFormRow hasEmptyLabelSpace>
-              <EuiToolTip position="bottom" content="Flip the width and height">
+              <EuiToolTip position="bottom" content="翻转宽度和高度">
                 <EuiButtonIcon
                   iconType="merge"
                   color="text"
                   onClick={rotate}
-                  aria-label="Swap Page Dimensions"
+                  aria-label="交换页面尺寸"
                   style={{ marginBottom: 12 }}
                 />
               </EuiToolTip>
             </EuiFormRow>
           </EuiFlexItem>
           <EuiFlexItem>
-            <EuiFormRow label="Height" compressed>
+            <EuiFormRow label="高度" compressed>
               <EuiFieldNumber
                 onChange={e => setSize({ height: Number(e.target.value), width: size.width })}
                 value={size.height}
@@ -114,8 +114,8 @@ export class WorkpadConfig extends PureComponent {
               key={`page-size-badge-${i}`}
               color="hollow"
               onClick={() => setSize(badge.size)}
-              aria-label={`Preset Page Size: ${badge.name}`}
-              onClickAriaLabel={`Set page size to ${badge.name}`}
+              aria-label={`预设页面大小: ${badge.name}`}
+              onClickAriaLabel={`预设页面大小 ${badge.name}`}
             >
               {badge.name}
             </EuiBadge>
@@ -129,26 +129,26 @@ export class WorkpadConfig extends PureComponent {
           className="canvasArg__accordion"
           buttonContent={
             <EuiToolTip
-              content="Apply styles to all pages in this workpad"
+              content="将样式应用于此工作台中的所有页面"
               position="left"
               className="canvasArg__tooltip"
             >
               <EuiText size="s" color="subdued">
-                Global CSS overrides
+              全局CSS覆盖
               </EuiText>
             </EuiToolTip>
           }
         >
           <div className="canvasArg__content">
             <EuiTextArea
-              aria-label="Apply styles to all pages in this workpad"
+              aria-label="将样式应用于此工作台中的所有页面"
               value={css}
               onChange={e => this.setState({ css: e.target.value })}
               rows={10}
             />
             <EuiSpacer size="s" />
             <EuiButton size="s" onClick={() => setWorkpadCSS(css || DEFAULT_WORKPAD_CSS)}>
-              Apply stylesheet
+              应用样式表
             </EuiButton>
             <EuiSpacer size="xs" />
           </div>

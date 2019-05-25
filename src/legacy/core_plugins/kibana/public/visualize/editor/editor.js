@@ -242,9 +242,9 @@ function VisEditor(
       }
     }
   }, {
-    key: i18n('kbn.topNavMenu.refreshButtonLabel', { defaultMessage: 'refresh' }),
+    key: i18n('kbn.topNavMenu.refreshButtonLabel', { defaultMessage: '刷新' }),
     description: i18n('kbn.visualize.topNavMenu.refreshButtonAriaLabel', {
-      defaultMessage: 'Refresh',
+      defaultMessage: '刷新',
     }),
     run: function () {
       vis.forceReload();

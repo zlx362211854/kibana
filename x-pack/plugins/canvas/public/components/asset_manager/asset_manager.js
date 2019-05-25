@@ -103,10 +103,10 @@ export class AssetManager extends React.PureComponent {
 
         <EuiFlexGroup alignItems="baseline" justifyContent="center" responsive={false}>
           <EuiFlexItem className="asset-create-image" grow={false}>
-            <EuiToolTip content="Create image element">
+            <EuiToolTip content="创建图像元素">
               <EuiButtonIcon
                 iconType="vector"
-                aria-label="Create image element"
+                aria-label="创建图像元素"
                 onClick={() => {
                   this.addElement(asset.id);
                   this.closeModal();
@@ -115,19 +115,19 @@ export class AssetManager extends React.PureComponent {
             </EuiToolTip>
           </EuiFlexItem>
           <EuiFlexItem className="asset-download" grow={false}>
-            <EuiToolTip content="Download">
+            <EuiToolTip content="下载">
               <Download fileName={asset.id} content={asset.value}>
-                <EuiButtonIcon iconType="sortDown" aria-label="Download" />
+                <EuiButtonIcon iconType="sortDown" aria-label="下载" />
               </Download>
             </EuiToolTip>
           </EuiFlexItem>
           <EuiFlexItem grow={false}>
-            <EuiToolTip content="Copy id to clipboard">
+            <EuiToolTip content="将ID复制到剪贴板">
               <Clipboard
                 content={asset.id}
                 onCopy={result => result && this.props.copyAsset(asset.id)}
               >
-                <EuiButtonIcon iconType="copyClipboard" aria-label="Copy id to clipboard" />
+                <EuiButtonIcon iconType="copyClipboard" aria-label="将ID复制到剪贴板" />
               </Clipboard>
             </EuiToolTip>
           </EuiFlexItem>
@@ -136,7 +136,7 @@ export class AssetManager extends React.PureComponent {
               <EuiButtonIcon
                 color="danger"
                 iconType="trash"
-                aria-label="Delete"
+                aria-label="删除"
                 onClick={() => this.setState({ deleteId: asset.id })}
               />
             </EuiToolTip>
@@ -160,11 +160,11 @@ export class AssetManager extends React.PureComponent {
       <EuiPanel className="canvasAssetManager__emptyPanel">
         <EuiEmptyPrompt
           iconType="importAction"
-          title={<h2>No available assets</h2>}
+          title={<h2>没有可用的资产</h2>}
           titleSize="s"
           body={
             <Fragment>
-              <p>Upload your assets above to get started</p>
+              <p>上传您的资产以开始使用</p>
             </Fragment>
           }
         />
@@ -180,15 +180,15 @@ export class AssetManager extends React.PureComponent {
         >
           <EuiModalHeader className="canvasAssetManager__modalHeader">
             <EuiModalHeaderTitle className="canvasAssetManager__modalHeaderTitle">
-              Manage workpad assets
+             管理工作台资产
             </EuiModalHeaderTitle>
             <EuiFlexGroup className="canvasAssetManager__fileUploadWrapper">
               <EuiFlexItem grow={false}>
                 {loading ? (
-                  <Loading animated text="Uploading images" />
+                  <Loading animated text="图像更新中" />
                 ) : (
                   <EuiFilePicker
-                    initialPromptText="Select or drag and drop images"
+                    initialPromptText="选择或拖放图像"
                     compressed
                     multiple
                     onChange={this.handleFileUpload}
@@ -201,9 +201,7 @@ export class AssetManager extends React.PureComponent {
           <EuiModalBody>
             <EuiText size="s" color="subdued">
               <p>
-                Below are the image assets that you added to this workpad. To reclaim space, delete
-                assets that you no longer need. Unfortunately, any assets that are actually in use
-                cannot be determined at this time.
+              以下是您添加到此工作台的图像资源。 要回收空间，请删除不再需要的资产。 不幸的是，目前无法确定任何实际使用的资产。
               </p>
             </EuiText>
             <EuiSpacer />
@@ -227,11 +225,11 @@ export class AssetManager extends React.PureComponent {
                 />
               </EuiFlexItem>
               <EuiFlexItem grow={false} className="eui-textNoWrap">
-                <EuiText id="CanvasAssetManagerLabel">{percentageUsed}% space used</EuiText>
+                <EuiText id="CanvasAssetManagerLabel">{percentageUsed}% 空间使用</EuiText>
               </EuiFlexItem>
             </EuiFlexGroup>
             <EuiButton size="s" onClick={this.closeModal}>
-              Close
+              关闭
             </EuiButton>
           </EuiModalFooter>
         </EuiModal>
@@ -240,15 +238,15 @@ export class AssetManager extends React.PureComponent {
 
     return (
       <Fragment>
-        <EuiButtonEmpty onClick={this.showModal}>Manage assets</EuiButtonEmpty>
+        <EuiButtonEmpty onClick={this.showModal}>管理资产</EuiButtonEmpty>
 
         {assetModal}
 
         <ConfirmModal
           isOpen={this.state.deleteId != null}
-          title="Remove Asset"
-          message="Are you sure you want to remove this asset?"
-          confirmButtonText="Remove"
+          title="删除资产"
+          message="确定要删除此资产?"
+          confirmButtonText="删除"
           onConfirm={this.doDelete}
           onCancel={this.resetDelete}
         />

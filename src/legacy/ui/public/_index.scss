@@ -37,3 +37,44 @@
 // @import './vis/index';
 @import './vislib/index';
 @import './visualize/index';
+
+.euiListGroupItem {
+    &:hover,&:active,&:visited,&:link {
+      background: #358AFF !important;
+    }
+  }
+  .euiListGroupItem-isActive {
+    background: #358AFF !important;
+  }
+  .kbnTopNav__mainMenu .kuiLocalMenuItem:not(.kuiLocalMenuItem-isDisabled) {
+    color: #fff;
+    background: #30A6FB;
+    width: 70px; 
+    margin: 5px;
+    border-radius: 5px;
+    padding: 2px 20px;
+}
+.euiAvatar{
+    border-radius: 20px;
+    background: #4B4B4B !important;
+    color: #fff !important;
+}
+a,a:hover,a:active,a:visited,a:link,a:focus{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+    outline:none;
+    background: none;
+    text-decoration: none;
+}
+.euiHeaderSectionItem:after{
+    display: none !important
+}
+.euiListGroupItem__text, .euiListGroupItem__button{
+    padding: 8px 6px !important
+}
+.euiNavDrawerGroup__item .euiListGroupItem__icon{
+    max-width: 20px !important;
+}
+.euiNavDrawerGroup__item .euiListGroupItem__button{
+    color: #fff !important
+}
